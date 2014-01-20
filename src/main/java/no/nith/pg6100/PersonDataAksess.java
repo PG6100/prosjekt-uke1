@@ -1,11 +1,8 @@
 package no.nith.pg6100;
 
-
 import java.util.List;
 
 public class PersonDataAksess {
-
-    private javax.persistence.EntityManager em;
 
     public void lagrePerson(Person person) {
         //TODO
