@@ -24,7 +24,7 @@ public class Main {
     public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                //visGUI();
+                visGUI();
             }
         });
     }
