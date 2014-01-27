@@ -26,10 +26,7 @@ public class PersonTest{
     @Test
     public void testLagring(){
         em.getTransaction().begin();
-        Person person = new Person();
-        person.setEpost("test1@test.no");
-        person.setFornavn("Ola");
-        person.setEtternavn("Nordmann");
+        Person person = getPerson();
         em.persist(person);
         em.flush();
         Person p=(Person) em.createQuery("from Person p where p.epost=?1").setParameter(1,"test1@test.no").getSingleResult();
@@ -38,5 +35,22 @@ public class PersonTest{
         em.getTransaction().commit();
     }
 
+    private Person getPerson() {
+        Person person = new Person();
+        person.setEpost("test1@test.no");
+        person.setFornavn("Ola");
+        person.setEtternavn("Nordmann");
+        return person;
+    }
 
+    @Test
+    public void testHentPerson(){
+        em.getTransaction().begin();
+        Person person = getPerson();
+        em.persist(person);
+        Person person2 = em.find(Person.class, person.getPersonId());
+        assertEquals("Ola",person2.getFornavn());
+        em.getTransaction().commit();
+
+    }
 }

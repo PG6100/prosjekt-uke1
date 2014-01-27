@@ -2,6 +2,8 @@ package no.nith.pg6100.swing;
 
 import javax.swing.*;
 
+import java.lang.reflect.Field;
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
@@ -19,10 +21,10 @@ public class Main {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                visGUI();
+                //visGUI();
             }
         });
     }
